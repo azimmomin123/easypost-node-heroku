@@ -7,7 +7,7 @@ var apiKey = 'cueqNZUb3ldeWTNX7MU3Mel8UXtaAMUi'; //example API key
 //var apiKey = 'cQVOnDzVCxA2YXpIadqNkg'; //This is 404's api key, switch it back to this.
 var easypost = require('node-easypost')(apiKey); // after installing with NPM this can be require('node-easypost')(apiKey);
 
-app.get('/:parcel', function (request, response) {
+app.get('/', function (request, response) {
 
     var parcel = request.params.parcel;
     console.log('My get request fired!')
@@ -58,14 +58,14 @@ easypost.Parcel.create({
     console.log("err message!"+err);
 });
 
-// var parcel = {
-//     // in INCHES
-//     length: 10.2,
-//     width: 7.8,
-//     height: 4.3,
-//     // in OZ
-//     weight: weight
-// };
+var parcel = {
+    // in INCHES
+    length: 10.2,
+    width: 7.8,
+    height: 4.3,
+    // in OZ
+    weight: weight
+};
 
 // create customs_info form for intl shipping
 var customsItem = {
