@@ -9,13 +9,13 @@ var easypost = require('node-easypost')(apiKey); // after installing with NPM th
 
 app.get('/', function (request, response) {
 
-    // var parcel = request.params.parcel;
+    //var parcel = request.params.parcel;
     // var parcel = JSON.parse('{"' + decodeURI(parcel)
     //     .replace(/"/g, '\\"')
     //     .replace(/&/g, '","')
     //     .replace(/=/g,'":"') + '"}');
 
-    console.log(parcel);
+   // console.log(parcel);
     console.log('My get request fired!')
     var packageShip;
 
@@ -59,19 +59,19 @@ easypost.Address.create(toAddress, function(err, toAddress) {
 // set parcel
 easypost.Parcel.create({
     predefined_package: "ValidPackageName",
-    weight: parcel.weight
+    weight: 21.1
 }, function(err, response) {
     console.log("err message!"+err);
 });
 
-// var parcel = {
-//     // in INCHES
-//     length: 10.2,
-//     width: 7.8,
-//     height: 4.3,
-//     // in OZ
-//     weight: 20.5
-// };
+var parcel = {
+    // in INCHES
+    length: 10.2,
+    width: 7.8,
+    height: 4.3,
+    // in OZ
+    weight: 20.5
+};
 
 // create customs_info form for intl shipping
 var customsItem = {
@@ -111,7 +111,7 @@ var customsItem = {
             //response.send(packageShip); //we dont need to do a res.send here because the shipment.buy method actually already does the sending for us
             console.log(JSON.stringify(packageShip));
             //Cross Origin Allow
-            //response.setHeader('Access-Control-Allow-Origin', '*');
+            response.setHeader('Access-Control-Allow-Origin', '*');
             response.send(JSON.stringify(packageShip));
         });
        
