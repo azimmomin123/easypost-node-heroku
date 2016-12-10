@@ -10,6 +10,11 @@ var easypost = require('node-easypost')(apiKey); // after installing with NPM th
 app.get('/:parcel', function (request, response) {
 
     var parcel = request.params.parcel;
+    var parcel = JSON.parse('{"' + decodeURI(parcel)
+        .replace(/"/g, '\\"')
+        .replace(/&/g, '","')
+        .replace(/=/g,'":"') + '"}');
+
     console.log(parcel);
     console.log('My get request fired!')
     var packageShip;
