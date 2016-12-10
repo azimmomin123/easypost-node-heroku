@@ -7,7 +7,7 @@ var apiKey = 'J3maCK5AdkXaVOccQAlmuA'
 //var apiKey = 'cQVOnDzVCxA2YXpIadqNkg'; //This is 404's api key, switch it back to this.
 var easypost = require('node-easypost')(apiKey); // after installing with NPM this can be require('node-easypost')(apiKey);
 
-app.get('/', function (request, response) {
+app.get('/:weight', function (request, response) {
     console.log('My get request fired!')
     var packageShip;
 
