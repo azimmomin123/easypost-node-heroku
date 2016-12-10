@@ -53,7 +53,7 @@ easypost.Address.create(toAddress, function(err, toAddress) {
 // set parcel
 easypost.Parcel.create({
     predefined_package: "ValidPackageName",
-    weight: weight
+    weight: 20.5
 }, function(err, response) {
     console.log("err message!"+err);
 });
@@ -64,7 +64,7 @@ var parcel = {
     width: 7.8,
     height: 4.3,
     // in OZ
-    weight: weight
+    weight: 20.5
 };
 
 // create customs_info form for intl shipping
