@@ -8,6 +8,8 @@ var apiKey = 'J3maCK5AdkXaVOccQAlmuA'
 var easypost = require('node-easypost')(apiKey); // after installing with NPM this can be require('node-easypost')(apiKey);
 
 app.get('/:weight', function (request, response) {
+
+    var weight = request.params.weight;
     console.log('My get request fired!')
     var packageShip;
 
@@ -49,7 +51,7 @@ easypost.Address.create(toAddress, function(err, toAddress) {
 // set parcel
 easypost.Parcel.create({
     predefined_package: "ValidPackageName",
-    weight: 21.2
+    weight: weight
 }, function(err, response) {
     console.log("err message!"+err);
 });
@@ -60,7 +62,7 @@ var parcel = {
     width: 7.8,
     height: 4.3,
     // in OZ
-    weight: 21.2
+    weight: weight
 };
 
 // create customs_info form for intl shipping
