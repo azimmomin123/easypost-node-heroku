@@ -7,13 +7,13 @@ var apiKey = 'cueqNZUb3ldeWTNX7MU3Mel8UXtaAMUi'; //test API key
 //var apiKey = 'cQVOnDzVCxA2YXpIadqNkg'; //This is 404's api key, switch it back to this.
 var easypost = require('node-easypost')(apiKey); // after installing with NPM this can be require('node-easypost')(apiKey);
 
-app.get('/:parcel', function (request, response) {
+app.post('/', function (request, response) {
 
-    var parcel = request.params.parcel;
-    var parcel = JSON.parse('{"' + decodeURI(parcel)
-        .replace(/"/g, '\\"')
-        .replace(/&/g, '","')
-        .replace(/=/g,'":"') + '"}');
+    // var parcel = request.params.parcel;
+    // var parcel = JSON.parse('{"' + decodeURI(parcel)
+    //     .replace(/"/g, '\\"')
+    //     .replace(/&/g, '","')
+    //     .replace(/=/g,'":"') + '"}');
 
     console.log(parcel);
     console.log('My get request fired!')
@@ -111,7 +111,7 @@ var customsItem = {
             //response.send(packageShip); //we dont need to do a res.send here because the shipment.buy method actually already does the sending for us
             console.log(JSON.stringify(packageShip));
             //Cross Origin Allow
-            response.setHeader('Access-Control-Allow-Origin', '*');
+            //response.setHeader('Access-Control-Allow-Origin', '*');
             response.send(JSON.stringify(packageShip));
         });
        
