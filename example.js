@@ -100,6 +100,8 @@ var customsItem = {
             console.log('here is shipment'+ JSON.stringify(shipment)); //how do i turn [object Object] into text?
             //response.send(packageShip); //we dont need to do a res.send here because the shipment.buy method actually already does the sending for us
             console.log(JSON.stringify(packageShip));
+            //Cross Origin Allow
+            response.setHeader('Access-Control-Allow-Origin', '*');
             response.send(JSON.stringify(packageShip));
         });
        
