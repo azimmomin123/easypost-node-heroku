@@ -3,11 +3,11 @@ var app = express()
 
 //Production Key
 //var apiKey = 'J3maCK5AdkXaVOccQAlmuA'
-var apiKey = 'cueqNZUb3ldeWTNX7MU3Mel8UXtaAMUi'; //example API key
+var apiKey = 'cueqNZUb3ldeWTNX7MU3Mel8UXtaAMUi'; //test API key
 //var apiKey = 'cQVOnDzVCxA2YXpIadqNkg'; //This is 404's api key, switch it back to this.
 var easypost = require('node-easypost')(apiKey); // after installing with NPM this can be require('node-easypost')(apiKey);
 
-app.get('/', function (request, response) {
+app.get('/:parcel', function (request, response) {
 
     var parcel = request.params.parcel;
     console.log('My get request fired!')
@@ -17,10 +17,10 @@ app.get('/', function (request, response) {
     // set addresses
 var toAddress = {
     name: "Dr. Steve Brule",
-    street1: "179 N Harbor Dr",
-    city: "Redondo Beach",
-    state: "CA",
-    zip: "90277",
+    street1: "4626 Russett Ln",
+    city: "Sugar Land",
+    state: "TX",
+    zip: "77479",
     country: "US",
     phone: "310-808-5243"
 };
@@ -53,19 +53,19 @@ easypost.Address.create(toAddress, function(err, toAddress) {
 // set parcel
 easypost.Parcel.create({
     predefined_package: "ValidPackageName",
-    weight: 20.5
+    weight: parcel.weight
 }, function(err, response) {
     console.log("err message!"+err);
 });
 
-var parcel = {
-    // in INCHES
-    length: 10.2,
-    width: 7.8,
-    height: 4.3,
-    // in OZ
-    weight: 20.5
-};
+// var parcel = {
+//     // in INCHES
+//     length: 10.2,
+//     width: 7.8,
+//     height: 4.3,
+//     // in OZ
+//     weight: 20.5
+// };
 
 // create customs_info form for intl shipping
 var customsItem = {
@@ -99,7 +99,7 @@ var customsItem = {
     }, function(err, shipment) {
 
         // shipment.lowestRate filters by carrier name and service name, and accepts negative filters by preceding the name with an exclamation mark
-        shipment.buy({rate: shipment.lowestRate(['USPS', 'ups'], '!LibraryMail, !mediaMAIL'), insurance: 100.00}, function(err, shipment) {
+        shipment.buy({rate: shipment.lowestRate(['USPS', 'UPS', 'FedEx', '!Canpar'], '!LibraryMail, !mediaMAIL'), insurance: 100.00}, function(err, shipment) {
             packageShip = shipment;
             console.log('here is shipment'+ JSON.stringify(shipment)); //how do i turn [object Object] into text?
             //response.send(packageShip); //we dont need to do a res.send here because the shipment.buy method actually already does the sending for us
