@@ -2,8 +2,8 @@ var express = require('express')
 var app = express()
 
 //Production Key
-var apiKey = 'J3maCK5AdkXaVOccQAlmuA'
-// var apiKey = 'cueqNZUb3ldeWTNX7MU3Mel8UXtaAMUi'; //example API key
+//var apiKey = 'J3maCK5AdkXaVOccQAlmuA'
+var apiKey = 'cueqNZUb3ldeWTNX7MU3Mel8UXtaAMUi'; //example API key
 //var apiKey = 'cQVOnDzVCxA2YXpIadqNkg'; //This is 404's api key, switch it back to this.
 var easypost = require('node-easypost')(apiKey); // after installing with NPM this can be require('node-easypost')(apiKey);
 
@@ -24,6 +24,8 @@ var toAddress = {
     country: "US",
     phone: "310-808-5243"
 };
+
+console.log(toAddress);
 var fromAddress = {
     name: "EasyPost",
     street1: "118 2nd Street",
