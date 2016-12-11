@@ -1,7 +1,5 @@
 var express = require('express')
 var app = express()
-var bodyParser = require('body-parser');
-var multer = require('multer'); 
 
 //Production Key
 //var apiKey = 'J3maCK5AdkXaVOccQAlmuA'
@@ -9,35 +7,11 @@ var apiKey = 'cueqNZUb3ldeWTNX7MU3Mel8UXtaAMUi'; //test API key
 //var apiKey = 'cQVOnDzVCxA2YXpIadqNkg'; //This is 404's api key, switch it back to this.
 var easypost = require('node-easypost')(apiKey); // after installing with NPM this can be require('node-easypost')(apiKey);
 
-// Add headers
-app.use(function (req, res, next) {
 
-    // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', 'https://nameless-inlet-48347.herokuapp.com/');
-    
-    // Request methods you wish to allow
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-
-    // Request headers you wish to allow
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-
-    // Set to true if you need the website to include cookies in the requests sent
-    // to the API (e.g. in case you use sessions)
-    res.setHeader('Access-Control-Allow-Credentials', true);
-
-    // Pass to next layer of middleware
-    next();
-});
+app.get('/:weight', function (request, response) {
 
 
-app.post('/', function (request, response) {
-
-
-    //var parcel = request.params.parcel;
-    // var parcel = JSON.parse('{"' + decodeURI(parcel)
-    //     .replace(/"/g, '\\"')
-    //     .replace(/&/g, '","')
-    //     .replace(/=/g,'":"') + '"}');
+    var weight = request.params.weight;
 
    // console.log(parcel);
     console.log('My get request fired!')
@@ -94,7 +68,7 @@ var parcel = {
     width: 7.8,
     height: 4.3,
     // in OZ
-    weight: 20.5
+    weight: weight
 };
 
 // create customs_info form for intl shipping
@@ -135,7 +109,7 @@ var customsItem = {
             //response.send(packageShip); //we dont need to do a res.send here because the shipment.buy method actually already does the sending for us
             console.log(JSON.stringify(packageShip));
             //Cross Origin Allow
-            //response.setHeader('Access-Control-Allow-Origin', '*');
+            response.setHeader('Access-Control-Allow-Origin', '*');
             response.send(JSON.stringify(packageShip));
         });
        
