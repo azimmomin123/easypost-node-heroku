@@ -1,7 +1,7 @@
 var express = require('express')
 var app = express()
-//var bodyParser = require('body-parser');
-//var multer = require('multer'); 
+var bodyParser = require('body-parser');
+var multer = require('multer'); 
 
 //Production Key
 //var apiKey = 'J3maCK5AdkXaVOccQAlmuA'
@@ -33,7 +33,7 @@ app.use(function (req, res, next) {
 app.post('/', function (request, response) {
 
 
-    //var parcel = request.body.parcel;
+    var parcel = request.params.parcel;
     // var parcel = JSON.parse('{"' + decodeURI(parcel)
     //     .replace(/"/g, '\\"')
     //     .replace(/&/g, '","')
@@ -88,14 +88,14 @@ easypost.Parcel.create({
     console.log("err message!"+err);
 });
 
-var parcel = {
-    // in INCHES
-    length: request.body.length, //10.2
-    width: 7.8,
-    height: 4.3,
-    // in OZ
-    weight: 20.5
-};
+// var parcel = {
+//     // in INCHES
+//     length: 10.2,
+//     width: 7.8,
+//     height: 4.3,
+//     // in OZ
+//     weight: 20.5
+// };
 
 // create customs_info form for intl shipping
 var customsItem = {
