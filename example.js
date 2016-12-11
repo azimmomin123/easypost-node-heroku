@@ -13,7 +13,7 @@ var easypost = require('node-easypost')(apiKey); // after installing with NPM th
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Origin', 'https://nameless-inlet-48347.herokuapp.com/');
     
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -135,7 +135,7 @@ var customsItem = {
             //response.send(packageShip); //we dont need to do a res.send here because the shipment.buy method actually already does the sending for us
             console.log(JSON.stringify(packageShip));
             //Cross Origin Allow
-            response.setHeader('Access-Control-Allow-Origin', '*');
+            //response.setHeader('Access-Control-Allow-Origin', '*');
             response.send(JSON.stringify(packageShip));
         });
        
