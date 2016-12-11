@@ -11,7 +11,7 @@ var easypost = require('node-easypost')(apiKey); // after installing with NPM th
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Origin', 'https://nameless-inlet-48347.herokuapp.com/');
 
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -30,7 +30,8 @@ app.use(function (req, res, next) {
 
 app.post('/', function (request, response) {
 
-    //var parcel = request.params.parcel;
+
+    var parcel = request.params.parcel;
     // var parcel = JSON.parse('{"' + decodeURI(parcel)
     //     .replace(/"/g, '\\"')
     //     .replace(/&/g, '","')
@@ -85,14 +86,14 @@ easypost.Parcel.create({
     console.log("err message!"+err);
 });
 
-var parcel = {
-    // in INCHES
-    length: 10.2,
-    width: 7.8,
-    height: 4.3,
-    // in OZ
-    weight: 20.5
-};
+// var parcel = {
+//     // in INCHES
+//     length: 10.2,
+//     width: 7.8,
+//     height: 4.3,
+//     // in OZ
+//     weight: 20.5
+// };
 
 // create customs_info form for intl shipping
 var customsItem = {
