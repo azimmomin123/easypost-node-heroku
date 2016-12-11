@@ -1,5 +1,7 @@
 var express = require('express')
 var app = express()
+var bodyParser = require('body-parser');
+var multer = require('multer'); 
 
 //Production Key
 //var apiKey = 'J3maCK5AdkXaVOccQAlmuA'
@@ -12,8 +14,7 @@ app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
     res.setHeader('Access-Control-Allow-Origin', 'https://nameless-inlet-48347.herokuapp.com/');
-    res.setHeader('Access-Control-Allow-Origin', '*');
-
+    
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
 
@@ -32,7 +33,7 @@ app.use(function (req, res, next) {
 app.post('/', function (request, response) {
 
 
-    var parcel = request.params.parcel;
+    var parcel = request.body.parcel;
     // var parcel = JSON.parse('{"' + decodeURI(parcel)
     //     .replace(/"/g, '\\"')
     //     .replace(/&/g, '","')
