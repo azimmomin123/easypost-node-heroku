@@ -1,7 +1,7 @@
 var express = require('express')
 var app = express()
-var bodyParser = require('body-parser');
-var multer = require('multer'); 
+//var bodyParser = require('body-parser');
+//var multer = require('multer'); 
 
 //Production Key
 //var apiKey = 'J3maCK5AdkXaVOccQAlmuA'
