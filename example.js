@@ -8,11 +8,14 @@ var apiKey = 'cueqNZUb3ldeWTNX7MU3Mel8UXtaAMUi'; //test API key
 var easypost = require('node-easypost')(apiKey); // after installing with NPM this can be require('node-easypost')(apiKey);
 
 
-app.get('/:weight/:length', function (request, response) {
+app.get('/:length/:width/:height/:weight', function (request, response) {
 
 
-    var weight = request.params.weight;
+    //Parcel Data
     var length = request.params.length;
+    var width = request.params.width;
+    var length = request.params.height;
+    var weight = request.params.weight;
 
    // console.log(parcel);
     console.log('My get request fired!')
@@ -65,8 +68,8 @@ easypost.Parcel.create({
 var parcel = {
     // in INCHES
     length: length,
-    width: 7.8,
-    height: 4.3,
+    width: width,
+    height: height,
     // in OZ
     weight: weight
 };
