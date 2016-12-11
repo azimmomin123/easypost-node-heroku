@@ -8,6 +8,13 @@ var apiKey = 'cueqNZUb3ldeWTNX7MU3Mel8UXtaAMUi'; //test API key
 var easypost = require('node-easypost')(apiKey); // after installing with NPM this can be require('node-easypost')(apiKey);
 
 
+// This allows Cross-Origin Requests to our server
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 app.get('/:length/:width/:height/:weight', function (request, response) {
 
 
