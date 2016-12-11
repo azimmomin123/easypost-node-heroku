@@ -112,6 +112,7 @@ var customsItem = {
             console.log(JSON.stringify(packageShip));
             //Cross Origin Allow
             response.setHeader('Access-Control-Allow-Origin', '*');
+            response.setHeader(('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
             response.send(JSON.stringify(packageShip));
         });
        
