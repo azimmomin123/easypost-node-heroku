@@ -8,10 +8,11 @@ var apiKey = 'cueqNZUb3ldeWTNX7MU3Mel8UXtaAMUi'; //test API key
 var easypost = require('node-easypost')(apiKey); // after installing with NPM this can be require('node-easypost')(apiKey);
 
 
-app.get('/:weight', function (request, response) {
+app.get('/:weight/:length', function (request, response) {
 
 
     var weight = request.params.weight;
+    var length = request.params.length;
 
    // console.log(parcel);
     console.log('My get request fired!')
@@ -29,7 +30,6 @@ var toAddress = {
     phone: "310-808-5243"
 };
 
-console.log(toAddress);
 var fromAddress = {
     name: "EasyPost",
     street1: "118 2nd Street",
@@ -57,14 +57,14 @@ easypost.Address.create(toAddress, function(err, toAddress) {
 // set parcel
 easypost.Parcel.create({
     predefined_package: "ValidPackageName",
-    weight: 21.1
+    weight: weight
 }, function(err, response) {
     console.log("err message!"+err);
 });
 
 var parcel = {
     // in INCHES
-    length: 10.2,
+    length: length,
     width: 7.8,
     height: 4.3,
     // in OZ
@@ -78,7 +78,7 @@ var customsItem = {
     origin_country: "US",
     quantity: 2,
     value: 96.27,
-    weight: 21.1
+    weight: weight
 };
 
 // var customsInfo = {
