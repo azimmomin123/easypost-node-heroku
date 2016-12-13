@@ -19,14 +19,14 @@ var easypost = require('node-easypost')(apiKey); // after installing with NPM th
 //     response.send("Hello world!");
 // });
 
-app.get('/:length/:width/:height', function (request, response) {
+app.get('/:length/:width/:height/:weight', function (request, response) {
 
 
     //Parcel Data
     var length = request.params.length;
     var width = request.params.width;
     var height = request.params.height;
-    // var weight = request.params.weight;
+    var weight = request.params.weight;
 
    // console.log(parcel);
     console.log('My get request fired!')
@@ -71,7 +71,7 @@ easypost.Address.create(toAddress, function(err, toAddress) {
 // set parcel
 easypost.Parcel.create({
     predefined_package: "ValidPackageName",
-    weight: 6
+    weight: weight
 }, function(err, response) {
     console.log("err message!"+err);
 });
@@ -82,7 +82,7 @@ var parcel = {
     width: width,
     height: height,
     // in OZ
-    weight: 6
+    weight: weight
 };
 
 // create customs_info form for intl shipping
@@ -92,7 +92,7 @@ var customsItem = {
     origin_country: "US",
     quantity: 2,
     value: 96.27,
-    weight: 6
+    weight: weight
 };
 
 // var customsInfo = {
