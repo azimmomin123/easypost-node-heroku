@@ -126,7 +126,7 @@ var customsItem = {
     }, function(err, shipment) {
 
         // shipment.lowestRate filters by carrier name and service name, and accepts negative filters by preceding the name with an exclamation mark
-        shipment.buy({rate: shipment.lowestRate(['USPS', 'UPS', 'FedEx', '!Canpar'], '!LibraryMail, !mediaMAIL'), insurance: 100.00}, function(err, shipment) {
+        shipment.buy({rate: shipment.lowestRate(['USPS', 'UPS', 'FedEx'], '!LibraryMail, !mediaMAIL'), insurance: 100.00}, function(err, shipment) {
             packageShip = shipment;
             console.log('here is shipment'+ JSON.stringify(shipment)); //how do i turn [object Object] into text?
             //response.send(packageShip); //we dont need to do a res.send here because the shipment.buy method actually already does the sending for us
