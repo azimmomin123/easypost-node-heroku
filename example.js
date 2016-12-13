@@ -15,9 +15,9 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.get('/', function(request, response){
-    response.send("Hello world!");
-});
+// app.get('/', function(request, response){
+//     response.send("Hello world!");
+// });
 
 app.get('/:length/:width/', function (request, response) {
 
