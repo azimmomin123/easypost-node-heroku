@@ -19,13 +19,13 @@ var easypost = require('node-easypost')(apiKey); // after installing with NPM th
 //     response.send("Hello world!");
 // });
 
-app.get('/:length/:width', function (request, response) {
+app.get('/:length/:width/:height', function (request, response) {
 
 
     //Parcel Data
     var length = request.params.length;
     var width = request.params.width;
-    // var length = request.params.height;
+    var height = request.params.height;
     // var weight = request.params.weight;
 
    // console.log(parcel);
@@ -80,7 +80,7 @@ var parcel = {
     // in INCHES
     length: length,
     width: width,
-    height: 6,
+    height: height,
     // in OZ
     weight: 6
 };
