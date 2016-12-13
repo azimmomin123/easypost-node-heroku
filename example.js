@@ -24,9 +24,9 @@ app.get('/:length', function (request, response) {
 
     //Parcel Data
     var length = request.params.length;
-    var width = request.params.width;
-    var length = request.params.height;
-    var weight = request.params.weight;
+    // var width = request.params.width;
+    // var length = request.params.height;
+    // var weight = request.params.weight;
 
    // console.log(parcel);
     console.log('My get request fired!')
