@@ -19,7 +19,7 @@ var easypost = require('node-easypost')(apiKey); // after installing with NPM th
 //     response.send("Hello world!");
 // });
 
-app.get('/:length/:width/:height/:weight/:toStreet/:toCity/:toState/:toZipcode/:toCountry/:toPhone', function (request, response) {
+app.get('/:length/:width/:height/:weight/:toStreet/:toCity/:toState/:toZipcode/:toCountry/:toPhone/:fromStreet/:fromCity/:fromState/:fromZipcode/:fromCountry/:fromPhone', function (request, response) {
 
 
     //Parcel Data
@@ -35,6 +35,14 @@ app.get('/:length/:width/:height/:weight/:toStreet/:toCity/:toState/:toZipcode/:
     var toZipcode = request.params.toZipcode;
     var toCountry = request.params.toCountry;
     var toPhone = request.params.toPhone;
+
+    //fromAddress Data
+    var fromStreet = request.params.fromStreet;
+    var fromCity = request.params.fromCity;
+    var fromState = request.params.fromState;
+    var fromZipcode = request.params.fromZipcode;
+    var fromCountry = request.params.fromCountry;
+    var fromPhone = request.params.fromPhone;
 
 
    // console.log(parcel);
@@ -55,12 +63,12 @@ var toAddress = {
 
 var fromAddress = {
     name: "EasyPost",
-    street1: "118 2nd Street",
-    street2: "4th Floor",
-    city: "San Francisco",
-    state: "CA",
-    zip: "94105",
-    phone: "415-123-4567"
+    street1: fromStreet,
+    city: fromCity,
+    state: fromState,
+    zip: fromZipcode,
+    country: fromCountry,
+    phone: fromPhone
 };
 
 // verify address
