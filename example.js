@@ -19,7 +19,7 @@ app.use(function(req, res, next) {
 //     response.send("Hello world!");
 // });
 
-app.get('/:length/:width/', function (request, response) {
+app.get('/:length', function (request, response) {
 
 
     //Parcel Data
@@ -79,10 +79,10 @@ easypost.Parcel.create({
 var parcel = {
     // in INCHES
     length: length,
-    width: width,
-    height: height,
+    width: 4,
+    height: 6,
     // in OZ
-    weight: weight
+    weight: 6
 };
 
 // create customs_info form for intl shipping
