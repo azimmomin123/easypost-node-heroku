@@ -52,7 +52,7 @@ app.get('/:length/:width/:height/:weight/:toStreet/:toCity/:toState/:toZipcode/:
     
     // set addresses
 var toAddress = {
-    name: "Dr. Steve Brule",
+    //name: "Dr. Steve Brule",
     street1: toStreet,
     city: toCity,
     state: toState,
@@ -62,7 +62,7 @@ var toAddress = {
 };
 
 var fromAddress = {
-    name: "EasyPost",
+    //name: "EasyPost",
     street1: fromStreet,
     city: fromCity,
     state: fromState,
