@@ -71,7 +71,7 @@ easypost.Address.create(toAddress, function(err, toAddress) {
 // set parcel
 easypost.Parcel.create({
     predefined_package: "ValidPackageName",
-    weight: weight
+    weight: 6
 }, function(err, response) {
     console.log("err message!"+err);
 });
@@ -92,7 +92,7 @@ var customsItem = {
     origin_country: "US",
     quantity: 2,
     value: 96.27,
-    weight: weight
+    weight: 6
 };
 
 // var customsInfo = {
