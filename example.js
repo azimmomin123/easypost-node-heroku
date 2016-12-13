@@ -19,7 +19,7 @@ var easypost = require('node-easypost')(apiKey); // after installing with NPM th
 //     response.send("Hello world!");
 // });
 
-app.get('/:length/:width/:height/:weight', function (request, response) {
+app.get('/:length/:width/:height/:weight/:toStreet/:toCity/:toState/:toZipcode/:toCountry/:toPhone', function (request, response) {
 
 
     //Parcel Data
@@ -27,6 +27,15 @@ app.get('/:length/:width/:height/:weight', function (request, response) {
     var width = request.params.width;
     var height = request.params.height;
     var weight = request.params.weight;
+
+    //toAddress Data
+    var toStreet = request.params.toStreet;
+    var toCity = request.params.toCity;
+    var toState = request.params.toState;
+    var toZipcode = request.params.toZipcode;
+    var toCountry = request.params.toCountry;
+    var toPhone = request.params.toPhone;
+
 
    // console.log(parcel);
     console.log('My get request fired!')
@@ -36,12 +45,12 @@ app.get('/:length/:width/:height/:weight', function (request, response) {
     // set addresses
 var toAddress = {
     name: "Dr. Steve Brule",
-    street1: "4626 Russett Ln",
-    city: "Sugar Land",
-    state: "TX",
-    zip: "77479",
-    country: "US",
-    phone: "310-808-5243"
+    street1: toStreet,
+    city: toCity,
+    state: toState,
+    zip: toZipcode,
+    country: toCountry,
+    phone: toPhone
 };
 
 var fromAddress = {
