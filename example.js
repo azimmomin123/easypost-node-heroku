@@ -19,7 +19,7 @@ app.get('/', function(request, response){
     response.send("Hello world!");
 });
 
-app.get('/:length/:width/:height/:weight', function (request, response) {
+app.get('/:length/:width/', function (request, response) {
 
 
     //Parcel Data
